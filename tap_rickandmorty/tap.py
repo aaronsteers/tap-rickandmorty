@@ -21,10 +21,12 @@ STREAM_TYPES = [
 
 class TapRickAndMorty(Tap):
     """RickAndMorty tap class."""
+
     name = "tap-rickandmorty"
 
-    # TODO: Update this section with the actual config values you expect:
-    config_jsonschema = {}
+    config_jsonschema = th.PropertiesList(
+        th.Property("start_date", th.DateTimeType)
+    ).to_dict()
 
     def discover_streams(self) -> List[Stream]:
         """Return a list of discovered streams."""
