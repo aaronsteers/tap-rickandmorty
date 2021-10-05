@@ -88,7 +88,7 @@ class EpisodesStream(RickAndMortyStream):
         th.Property("name", th.StringType, description="The name of the episode."),
         th.Property(
             "air_date",
-            th.DateTimeType,
+            th.StringType,  # Non-ISO date string, e.g.: 'December 2, 2013'
             description="The air date of the episode.",
         ),
         th.Property(
