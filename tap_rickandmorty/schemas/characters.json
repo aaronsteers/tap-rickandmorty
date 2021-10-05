@@ -4,7 +4,7 @@
     ],
     "properties": {
         "id": {
-            "type": ["int", "null"],
+            "type": ["integer", "null"],
             "description": "The id of the character."
         },
         "name": {
