@@ -1,6 +1,6 @@
 # `tap-rickandmorty`
 
-RickAndMorty tap class.
+Rick and Morty Singer Tap, based on https://rickandmortyapi.com/.
 
 Built with the [Meltano SDK](https://sdk.meltano.com) for Singer Taps and Targets.
 
