@@ -1,33 +1,40 @@
-# tap-rickandmorty
+# `tap-rickandmorty`
 
-`tap-rickandmorty` is a Singer tap for RickAndMorty.
+RickAndMorty tap class.
 
-Build with the [Singer SDK](https://gitlab.com/meltano/singer-sdk).
+Built with the [Meltano SDK](https://sdk.meltano.com) for Singer Taps and Targets.
+
+## Capabilities
+
+* `catalog`
+* `state`
+* `discover`
+* `about`
+* `stream-maps`
+* `schema-flattening`
+
+## Settings
+
+| Setting             | Required | Default | Description |
+|:--------------------|:--------:|:-------:|:------------|
+| start_date          | False    | None    | The earliest record date to sync |
+| api_url             | False    | https://rickandmortyapi.com/api | The url for the API service |
+| stream_maps         | False    | None    | Config object for stream maps capability. |
+| stream_map_config   | False    | None    | User-defined config values to be used within map expressions. |
+| flattening_enabled  | False    | None    | 'True' to enable schema flattening and automatically expand nested properties. |
+| flattening_max_depth| False    | None    | The max depth to flatten schemas. |
+
+A full list of supported settings and capabilities is available by running: `tap-rickandmorty --about`
 
 ## Installation
 
-- [ ] `Developer TODO:` Update the below as needed to correctly describe the install procedure. For instance, if you do not have a PyPi repo, or if you want users to directly install from your git repo, you can modify this step as appropriate.
-
 ```bash
-pipx install tap-rickandmorty
-```
-
-## Configuration
-
-### Accepted Config Options
-
-- [ ] `Developer TODO:` Provide a list of config options accepted by the tap.
-
-A full list of supported settings and capabilities for this
-tap is available by running:
-
-```bash
-tap-rickandmorty --about
+pipx install git+https://github.com/aaronsteers/tap-rickandmorty.git
 ```
 
 ### Source Authentication and Authorization
 
-- [ ] `Developer TODO:` If your tap requires special access on the source system, or any special authentication requirements, provide those here.
+This tap runs fine with zero config. No auth is needed! 🙌
 
 ## Usage
 
