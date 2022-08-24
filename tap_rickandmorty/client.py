@@ -25,11 +25,8 @@ class RickAndMortyStream(RESTStream):
     ) -> Optional[Any]:
         """Return a token for identifying next page or None if no more pages."""
         resp_json = response.json()
-        
-        # the next token returns a whole URL, need to parse out the page number
-        next_page_url = resp_json.get("info").get("next")
-        
-        if next_page_url:
+
+        if next_page_url := resp_json.get("info").get("next"):
             # do this the lazy / very bad way for now ;) 
             next_page_token = int(next_page_url.split('page=', 1)[1])
             self.logger.debug(f"Next page token retrieved: {next_page_token}")
@@ -52,6 +49,5 @@ class RickAndMortyStream(RESTStream):
     def parse_response(self, response: requests.Response) -> Iterable[dict]:
         """Parse the response and return an iterator of result rows."""
         resp_json = response.json()
-        for row in resp_json.get("results"):
-            yield row
+        yield from resp_json.get("results")
 
